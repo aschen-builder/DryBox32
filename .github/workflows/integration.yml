@@ -3,6 +3,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
     - uses: actions/checkout@v2
     - name: Cache pip
@@ -25,3 +28,4 @@ jobs:
         pip install --upgrade platformio
     - name: Run PlatformIO
       run: pio run -e heltec_wifi_kit_32
+      working-directory: ./DryBox32_Hardware
